@@ -869,7 +869,7 @@ main(int argc, char **argv)
 		.min_overlap_outie = 35,
 		.max_mismatch_density = 0.25,
 		.cap_mismatch_quals = false,
-		.allow_outies = true,
+		.allow_outies = false,
 		.discard_reads = true,
         .skip_overlap = false,
 		.qual_score_cutoff = 2,
@@ -998,7 +998,7 @@ main(int argc, char **argv)
             alg_params.skip_overlap = true;
             break;
 		case 'O':
-            warning("This is a legacy option - adapter trimming is always set to on now - this argument does nothing!");
+            alg_params.allow_outies = true;
 			break;
 		case 'f':
 			fragment_len = strtol(optarg, &tmp, 10);
